@@ -57,6 +57,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 dependencies:
+  intl: ^0.20.2
   provider: ^6.1.5+1
 
   # To add assets to your application, add an assets section, like this:

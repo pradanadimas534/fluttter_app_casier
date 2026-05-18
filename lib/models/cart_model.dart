@@ -1,16 +1,19 @@
 class CartModel {
-
   int id;
   String name;
+  String type;
+  String unit;
   double price;
-  int qty;
+  double qty;
+  double total;
 
   CartModel({
     required this.id,
     required this.name,
+    required this.type,
+    required this.unit,
     required this.price,
     required this.qty,
+    required this.total,
   });
-
-  double get total => price * qty;
 }
