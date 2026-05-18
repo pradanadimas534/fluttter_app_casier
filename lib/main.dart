@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
-import 'screens/beranda_page.dart';
+import 'package:fluttter_app_casier/screens/home_screen.dart';
+import 'package:provider/provider.dart';
+
+import 'providers/kasir_provider.dart';
+// import 'screens/kasir_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => KasirProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BerandaPage(),
+      home: const HomeScreen(),
     );
   }
-
 }
