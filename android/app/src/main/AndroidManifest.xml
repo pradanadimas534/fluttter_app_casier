@@ -1,4 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+ <!-- Internet untuk upload Drive -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Akses storage untuk baca/tulis CSV -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
     <application
         android:label="fluttter_app_casier"
         android:name="${applicationName}"
