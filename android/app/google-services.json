@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "461233843349",
+    "project_id": "kasir-ba6aa",
+    "storage_bucket": "kasir-ba6aa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461233843349:android:7163afb84bfb97475c7f9c",
+        "android_client_info": {
+          "package_name": "com.example.fluttter_app_casier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461233843349-sm6sp3nqcjra3fehq833hmktn7ij88i7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGE2uxO5QtvrkIBJCxdYhNgxlRj0X7enY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461233843349-sm6sp3nqcjra3fehq833hmktn7ij88i7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
