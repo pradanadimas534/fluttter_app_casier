@@ -41,6 +41,8 @@ dependencies:
   google_sign_in: ^6.2.1
     # Simpan preferensi lokal (waktu upload terakhir, ID file Drive)
   shared_preferences: ^2.2.3
+  flutter_launcher_icons: ^0.14.4
+  
 
   
 dev_dependencies:
@@ -64,3 +66,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"

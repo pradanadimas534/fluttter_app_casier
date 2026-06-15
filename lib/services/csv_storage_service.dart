@@ -80,7 +80,7 @@ class CsvStorageService {
     final maxId = current.isEmpty
         ? 0
         : current.map((i) => i.id).reduce((a, b) => a > b ? a : b);
-    final withId  = baru.copyWith(id: maxId + 1);
+    final withId = baru.copyWith(id: maxId + 1);
     final updated = [...current, withId];
     await writeAll(updated);
     return updated;
@@ -91,9 +91,7 @@ class CsvStorageService {
     List<ItemModel> current,
     ItemModel item,
   ) async {
-    final updated = current
-        .map((i) => i.id == item.id ? item : i)
-        .toList();
+    final updated = current.map((i) => i.id == item.id ? item : i).toList();
     await writeAll(updated);
     return updated;
   }
@@ -106,5 +104,10 @@ class CsvStorageService {
     final updated = current.where((i) => i.id != id).toList();
     await writeAll(updated);
     return updated;
+  }
+
+  Future<bool> fileExists() async {
+    final f = await _file;
+    return await f.exists();
   }
 }

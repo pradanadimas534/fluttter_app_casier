@@ -68,22 +68,35 @@ class KasirProvider extends ChangeNotifier {
   /// Panggil sekali di main():
   ///   ChangeNotifierProvider(create: (_) => KasirProvider()..init())
   Future<void> init() async {
-    isLoading = true;
-    notifyListeners();
+  isLoading = true;
+  notifyListeners();
 
-    // Baca dari CSV lokal (jika belum ada → tulis data default)
+  try {
+    final fileExists = await _csv.fileExists();
+
+    if (!fileExists) {
+      // baru pertama kali install → bikin file default
+      await _csv.writeAll([]);
+    }
+
+    // baru baca data TANPA overwrite
     items = await _csv.readAll();
-    await _csv.writeAll(items); // pastikan file CSV selalu ada
 
-    // Cek status Drive terakhir
     await _refreshDriveStatus();
 
-    // Jadwal upload otomatis tiap 24 jam
-    _mulaiJadwalDrive();
-
+  } catch (e) {
+    debugPrint("INIT ERROR: $e");
+  } finally {
     isLoading = false;
     notifyListeners();
   }
+  
+
+  // PENTING: jalan di luar loading
+  Future.microtask(() {
+    _mulaiJadwalDrive();
+  });
+}
 
   // ── CART: TAMBAH ─────────────────────────────────────────────────
   void tambahKeCart(ItemModel item, {double qty = 1}) {
